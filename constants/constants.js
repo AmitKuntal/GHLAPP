@@ -1,3 +1,5 @@
 const SLOT_DURATION = 30*60000;
+const START_HOUR = '10:00';
+const END_HOUR = '17:00';
 
-module.exports = {SLOT_DURATION}
+module.exports = {SLOT_DURATION, START_HOUR, END_HOUR}
