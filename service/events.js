@@ -3,9 +3,13 @@ const client =  require('./../db/db.js')
 
 
 const addEventQuery = (slots)=>{
-    const valueArrayString = slots.reduce((acc, crr,index)=>{
+    var valueArrayString = slots.reduce((acc, crr,index)=>{
         return index == '1' ? `('${acc}'),('${crr}')` : `${acc},('${crr}')`
       })
+
+      if(slots.length<=1){
+        valueArrayString = `('${valueArrayString}')`
+    }
     const sql = `insert into events (dateTime) values ${valueArrayString} RETURNING *`;
     console.log(sql)
     return client.query(sql);
