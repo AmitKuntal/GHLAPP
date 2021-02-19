@@ -59,7 +59,7 @@ const checkEventExist = (slots)=>{
 const generateSlots = (date, duration)=>{
     duration
     if(duration*60000 <= SLOT_DURATION){
-        return [date];
+        return [date.toISOString().toString()];
     }
     else{
         let slotsCount = Math.ceil(duration*60000/SLOT_DURATION);
