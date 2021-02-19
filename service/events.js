@@ -12,9 +12,12 @@ const addEventQuery = (slots)=>{
 }
 
 const getEventsBetweenSlots = (slots) =>{
-    const condition = slots.reduce((acc, crr,index)=>{
+    var condition = slots.reduce((acc, crr,index)=>{
       return index == '1' ? `'${acc}','${crr}'` : `${acc},'${crr}'`
     })
+    if(slots.length()<=1){
+        condition = `'${condition}'`
+    }
     console.log(condition);
     const sql = `select * from events where dateTime in (${condition})`;
     console.log(sql)
