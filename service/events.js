@@ -15,7 +15,7 @@ const getEventsBetweenSlots = (slots) =>{
     var condition = slots.reduce((acc, crr,index)=>{
       return index == '1' ? `'${acc}','${crr}'` : `${acc},'${crr}'`
     })
-    if(slots.length()<=1){
+    if(slots.length<=1){
         condition = `'${condition}'`
     }
     console.log(condition);
